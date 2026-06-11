@@ -21,6 +21,7 @@
 <body>
     <iframe id="formframe" src="" frameborder="0"></iframe>
 </body>
+<script src="https://static.line-scdn.net/liff/edge/versions/149.0.4022.52/sdk.js"></script>
 <script>
         
         function runApp() {
@@ -30,6 +31,17 @@
             let pictureUrl = profile.pictureUrl;
             let url = "https://script.google.com/macros/s/AKfycbylM4X7sJm1AA6kFDj6X0RGHsB8RdrFe7sdxWKa2m_RgNHdEYylj96Ecv43P_rXdOIG/exec?userId="+userId+"&displayName="+displayName+"&pictureUrl="+pictureUrl;
         document.getElementById("formframe").src = url;
+        }).catch(err => console.error(err));
+    }
+
+    liff.init({ liffId: "2010229743-3nPu47Tt" }, () => {
+        if (liff.isLoggedIn()) {
+            runApp();
+        } else {
+            liff.login();
+        }
+    }, err => console.error(err.code, error.message));
+
 </script>
 
 </html>
